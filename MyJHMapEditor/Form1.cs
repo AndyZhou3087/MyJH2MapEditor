@@ -79,12 +79,22 @@ namespace MyJHMapEditor
                 if (radiotag == 0)
                 {
                     this.groupBox3.Visible = false;
+                    this.groupBox6.Visible = false;
                     this.panel1.Visible = false;
                 }
                 else
                 {
                     this.groupBox3.Visible = true;
+                    this.groupBox6.Visible = true;
                     this.panel1.Visible = true;
+                    if (radiotag == 1)
+                    {
+                        this.textBox8.Enabled = false;
+                    }
+                    else
+                    {
+                        this.textBox8.Enabled = true;
+                    }
                 }
                 (cur_picbox.Tag as CellData).postype = radiotag;
             }
@@ -104,7 +114,7 @@ namespace MyJHMapEditor
                 {
                     (cur_picbox.Tag as CellData).setEventRnd(tag, 0);
                     if (txtbox.Text.Length > 0)
-                        MessageBox.Show(this, "请输入整数！！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(this, "请输入整数！！"+ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
 
@@ -123,6 +133,7 @@ namespace MyJHMapEditor
                 clearInputContent();
                 this.panel1.Visible = true;
                 this.groupBox3.Visible = true;
+                this.groupBox6.Visible = true;
             }
             else
             {
@@ -153,62 +164,109 @@ namespace MyJHMapEditor
                 {
                     this.panel1.Visible = false;
                     groupBox3.Visible = false;
+                    groupBox6.Visible = false;
                 }
                 else if (posRadiotype > 0)
                 {
                     this.panel1.Visible = true;
                     groupBox3.Visible = true;
+                    groupBox6.Visible = true;
                     this.textBox8.Text = cdata.posnpcid;
                     this.textBox9.Text = cdata.posnpcrnd + "";
+                    if (posRadiotype == 1)
+                        textBox8.Enabled = false;
+                    else
+                        textBox8.Enabled = true;
 
                     for (int i = 0; i < 3; i++)
                     {
-                        string name = "AgetResTxtbox" + i;
-                        TextBox txtbox = (TextBox)groupBox3.Controls.Find(name, false)[0];
-                        txtbox.Text = cdata.choiceDataA.getGetRes(i);
-
-                        name = "AgetResCountTxtbox" + i;
-                        txtbox = (TextBox)groupBox3.Controls.Find(name, false)[0];
-                        txtbox.Text = cdata.choiceDataA.getGetResCount(i) + "";
-
-                        name = "BgetResTxtbox" + i;
-                        txtbox = (TextBox)groupBox3.Controls.Find(name, false)[0];
-                        txtbox.Text = cdata.choiceDataB.getGetRes(i);
-
-                        name = "BgetResCountTxtbox" + i;
-                        txtbox = (TextBox)groupBox3.Controls.Find(name, false)[0];
-                        txtbox.Text = cdata.choiceDataB.getGetResCount(i)+"";
-
-                        name = "AretRd" + i;
-                        RadioButton rdbtn = (RadioButton)groupBox4.Controls.Find(name, false)[0];
-                        if (cdata.choiceDataA.RetType == i)
+                        if (cdata.choiceDataA != null)
                         {
-                            rdbtn.Checked = true;
+                            string name = "AgetResTxtbox" + i;
+                            TextBox txtbox = (TextBox)groupBox3.Controls.Find(name, false)[0];
+                            txtbox.Text = cdata.choiceDataA.getGetRes(i);
+
+                            name = "AgetResCountTxtbox" + i;
+                            txtbox = (TextBox)groupBox3.Controls.Find(name, false)[0];
+                            txtbox.Text = cdata.choiceDataA.getGetResCount(i) + "";
+
+                            name = "AretRd" + i;
+                            RadioButton rdbtn = (RadioButton)groupBox4.Controls.Find(name, false)[0];
+                            if (cdata.choiceDataA.RetType == i)
+                            {
+                                rdbtn.Checked = true;
+                            }
+                            else
+                            {
+                                rdbtn.Checked = false;
+                            }
                         }
-                        else
+
+                        if (cdata.choiceDataB != null)
                         {
-                            rdbtn.Checked = false;
-                        }
-                        name = "BretRd" + i;
-                        rdbtn = (RadioButton)groupBox5.Controls.Find(name, false)[0];
-                        if (cdata.choiceDataB.RetType == i)
-                        {
-                            rdbtn.Checked = true;
-                        }
-                        else
-                        {
-                            rdbtn.Checked = false;
+                            string name = "BgetResTxtbox" + i;
+                            TextBox txtbox = (TextBox)groupBox3.Controls.Find(name, false)[0];
+                            txtbox.Text = cdata.choiceDataB.getGetRes(i);
+
+                            name = "BgetResCountTxtbox" + i;
+                            txtbox = (TextBox)groupBox3.Controls.Find(name, false)[0];
+                            txtbox.Text = cdata.choiceDataB.getGetResCount(i) + "";
+
+
+                            name = "BretRd" + i;
+                            RadioButton rdbtn = (RadioButton)groupBox5.Controls.Find(name, false)[0];
+                            if (cdata.choiceDataB.RetType == i)
+                            {
+                                rdbtn.Checked = true;
+                            }
+                            else
+                            {
+                                rdbtn.Checked = false;
+                            }
                         }
                     }
 
-                    chooseContent1.Text = cdata.choiceDataA.Content;
-                    chooseContent2.Text = cdata.choiceDataB.Content;
-                    AlossResTxtbox.Text = cdata.choiceDataA.LossRes;
-                    AlossResCountTxtbox.Text = cdata.choiceDataA.LossResCount + "";
-                    BlossResTxtbox.Text = cdata.choiceDataB.LossRes;
-                    BlossResCountTxtbox.Text = cdata.choiceDataB.LossResCount +"";
-                    AeffectBossTxtbox.Text = cdata.choiceDataA.EffectBoss;
-                    BeffectBossTxtbox.Text = cdata.choiceDataB.EffectBoss;
+                    for (int i = 0; i < 6; i++)
+                    {
+                        string name = "monsterLvTxt" + i;
+                        TextBox txtbox = (TextBox)groupBox6.Controls.Find(name, false)[0];
+                        txtbox.Text = cdata.getMonstersLv(i) + "";
+
+                        name = "monsterQUTxt" + i;
+                        txtbox = (TextBox)groupBox6.Controls.Find(name, false)[0];
+                        txtbox.Text = cdata.getMonstersQU(i) + "";
+
+                        name = "monsterGetResCount" + i;
+                        txtbox = (TextBox)groupBox6.Controls.Find(name, false)[0];
+                        txtbox.Text = cdata.getMonstersGetResCount(i) + "";
+
+                        name = "monsterIdTxt" + i;
+                        txtbox = (TextBox)groupBox6.Controls.Find(name, false)[0];
+                        txtbox.Text = cdata.getMonstersId(i);
+
+                        name = "monsterGetResId" + i;
+                        txtbox = (TextBox)groupBox6.Controls.Find(name, false)[0];
+                        txtbox.Text = cdata.getMonstersGetRes(i);
+                    }
+
+
+                    if (cdata.choiceDataA != null)
+                    {
+                        chooseContent1.Text = cdata.choiceDataA.Content;
+                        AlossResTxtbox.Text = cdata.choiceDataA.LossRes;
+                        AlossResCountTxtbox.Text = cdata.choiceDataA.LossResCount + "";
+                        AeffectBossTxtbox.Text = cdata.choiceDataA.EffectBoss;
+                    }
+                    else if (cdata.choiceDataB != null)
+                    {
+                        chooseContent2.Text = cdata.choiceDataB.Content;
+
+
+                        BlossResTxtbox.Text = cdata.choiceDataB.LossRes;
+                        BlossResCountTxtbox.Text = cdata.choiceDataB.LossResCount + "";
+
+                        BeffectBossTxtbox.Text = cdata.choiceDataB.EffectBoss;
+                    }
                 }
 
             }
@@ -238,7 +296,7 @@ namespace MyJHMapEditor
                 {
                     cdata.posnpcrnd = 0;
                     if (txtBox.Text.Length > 0)
-                        MessageBox.Show(this, "请输入整数！！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(this, "请输入整数！！" +ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 
@@ -259,6 +317,7 @@ namespace MyJHMapEditor
         {
             this.panel1.Visible = true;
             this.groupBox3.Visible = true;
+            this.groupBox6.Visible = true;
             for (int i = 1; i <= 7; i++)
             {
                 string name = "textBox" + i;
@@ -299,6 +358,30 @@ namespace MyJHMapEditor
                 rdbtn = (RadioButton)groupBox5.Controls.Find(name, false)[0];
                 rdbtn.Checked = false;
             }
+
+            for (int i=0;i<6;i++)
+            {
+                string name = "monsterLvTxt" + i;
+                TextBox txtbox = (TextBox)groupBox6.Controls.Find(name, false)[0];
+                txtbox.Text = "0";
+                name = "monsterQUTxt" + i;
+                txtbox = (TextBox)groupBox6.Controls.Find(name, false)[0];
+                txtbox.Text = "0";
+
+
+                name = "monsterGetResCount" + i;
+                txtbox = (TextBox)groupBox6.Controls.Find(name, false)[0];
+                txtbox.Text = "0";
+
+                name = "monsterIdTxt" + i;
+                txtbox = (TextBox)groupBox6.Controls.Find(name, false)[0];
+                txtbox.Text = "";
+
+                name = "monsterGetResId" + i;
+                txtbox = (TextBox)groupBox6.Controls.Find(name, false)[0];
+                txtbox.Text = "";
+            }
+
 
             chooseContent1.Text = "";
             chooseContent2.Text = "";
@@ -410,7 +493,7 @@ namespace MyJHMapEditor
                 catch (Exception ex)
                 {
                     if (AlossResCountTxtbox.Text.Length > 0)
-                        MessageBox.Show(this, "请输入整数！！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(this, "请输入整数！！"+ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 celldata.choiceDataA.LossResCount = count;
             }
@@ -442,7 +525,7 @@ namespace MyJHMapEditor
                 catch (Exception ex)
                 {
                     if (txtBox.Text.Length > 0)
-                        MessageBox.Show(this, "请输入整数！！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(this, "请输入整数！！" +ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 celldata.choiceDataA.setGetResCount(index, count);
             }
@@ -493,7 +576,7 @@ namespace MyJHMapEditor
                 catch (Exception ex)
                 {
                     if (txtBox.Text.Length > 0)
-                        MessageBox.Show(this, "请输入整数！！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(this, "请输入整数！！"+ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 celldata.choiceDataB.setGetResCount(index, count);
             }
@@ -519,7 +602,7 @@ namespace MyJHMapEditor
                 catch (Exception ex)
                 {
                     if (BlossResCountTxtbox.Text.Length > 0)
-                        MessageBox.Show(this, "请输入整数！！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(this, "请输入整数！！"+ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 celldata.choiceDataB.LossResCount = count;
             }
@@ -541,6 +624,27 @@ namespace MyJHMapEditor
                 string name = rdbtn.Name;
                 int rettype = int.Parse(name.Substring(name.Length - 1));
                 celldata.choiceDataB.RetType = rettype;
+            }
+        }
+
+        private void monsterTxt_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txtBox = sender as TextBox;
+            string name = txtBox.Name;
+            int index = int.Parse(name.Substring(name.Length - 1));
+            CellData celldata = cur_picbox.Tag as CellData;
+            if (celldata != null)
+            {
+                if (name.Contains("monsterIdTxt"))
+                    celldata.setMonstersId(index, txtBox.Text);
+                else if (name.Contains("monsterLvTxt"))
+                    celldata.setMonstersLv(index, int.Parse(txtBox.Text));
+                else if (name.Contains("monsterQUTxt"))
+                    celldata.setMonstersQU(index, int.Parse(txtBox.Text));
+                else if (name.Contains("monsterGetResId"))
+                    celldata.setMonstersGetRes(index, txtBox.Text);
+                else if (name.Contains("monsterGetResCount"))
+                    celldata.setMonstersGetResCount(index, int.Parse(txtBox.Text));
             }
         }
 
@@ -580,6 +684,19 @@ namespace MyJHMapEditor
                     else if (ename.Equals("posnpcrnd"))
                     {
                         celldata.posnpcrnd = int.Parse(sxe.InnerText);
+                    }
+                    else if (ename.Contains("monsteratt"))
+                    {
+                        int mindex = int.Parse(ename.Substring(ename.Length - 1)) - 1;
+                        celldata.setMonstersId(mindex, sxe.GetAttribute("id"));
+                        celldata.setMonstersQU(mindex, int.Parse(sxe.GetAttribute("qu")));
+                        celldata.setMonstersLv(mindex, int.Parse(sxe.InnerText));
+                    }
+                    else if (ename.Contains("monsterawd"))
+                    {
+                        int mindex = int.Parse(ename.Substring(ename.Length - 1)) - 1;
+                        celldata.setMonstersGetRes(mindex, sxe.GetAttribute("id"));
+                        celldata.setMonstersGetResCount(mindex, int.Parse(sxe.InnerText));
                     }
                     else if (ename.Contains("choice"))
                     {
@@ -653,7 +770,7 @@ namespace MyJHMapEditor
                     if (celldata != null && celldata.postype >= 0)
                     {
                         XmlElement cell = xmlDoc.CreateElement("Cell");
-                        //为<Zi>节点的属性
+                        //为<Cell>节点的属性
                         cell.SetAttribute("c", i + "");
                         cell.SetAttribute("r", j + "");
                         cell.SetAttribute("postype", celldata.postype + "");
@@ -676,51 +793,85 @@ namespace MyJHMapEditor
                             xmlele.InnerText = celldata.posnpcrnd + "";
                             cell.AppendChild(xmlele);
 
+                            for (int n = 1;n <= 6;n++)
+                            {
+                                string msid = celldata.getMonstersId(n - 1);
+                                if (msid != null && msid.Length > 0)
+                                {
+                                    string mname = "monsteratt" + n;
+                                    xmlele = xmlDoc.CreateElement(mname);
+                                    xmlele.InnerText = celldata.getMonstersLv(n - 1) + "";
+                                    xmlele.SetAttribute("id", msid);
+                                    xmlele.SetAttribute("qu", celldata.getMonstersQU(n - 1) + "");
+                                    cell.AppendChild(xmlele);
+                                }
+                            }
+
+                            for (int k = 1; k <= 6; k++)
+                            {
+                                string msid = celldata.getMonstersGetRes(k - 1);
+                                int count = celldata.getMonstersGetResCount(k - 1);
+                                if (msid != null && msid.Length > 0 && count > 0)
+                                {
+                                    string mname = "monsterawd" + k;
+                                    xmlele = xmlDoc.CreateElement(mname);
+                                    xmlele.InnerText = count + "";
+                                    xmlele.SetAttribute("id", msid);
+                                    cell.AppendChild(xmlele);
+                                }
+                            }
+
                             for (int k = 0; k < 2; k++)
                             {
                                 ChoicesData cdata;
+                                string cstring;
                                 if (k == 0)
                                 {
                                     cdata = celldata.choiceDataA;
-                                    xmlele = xmlDoc.CreateElement("choiceA");
+                                    cstring = "choiceA";
                                 }
                                 else
                                 {
                                     cdata = celldata.choiceDataB;
-                                    xmlele = xmlDoc.CreateElement("choiceB");
+                                    cstring = "choiceB";
                                 }
-                                xmlele.SetAttribute("cname", cdata.Content);
-
-                                for (int n = 0; n < 3; n++)
+                                if (cdata.Content != null)
                                 {
-                                    string resid = cdata.getGetRes(n);
-                                    int rescount = cdata.getGetResCount(n);
-                                    if (resid.Length > 0 && rescount > 0)
+                                    xmlele = xmlDoc.CreateElement(cstring);
+                                    xmlele.SetAttribute("cname", cdata.Content);
+
+
+                                    for (int n = 0; n < 3; n++)
                                     {
-                                        XmlElement xe = xmlDoc.CreateElement(resid);
-                                        xe.InnerText = rescount + "";
-                                        xmlele.AppendChild(xe);
+                                        string resid = cdata.getGetRes(n);
+                                        int rescount = cdata.getGetResCount(n);
+                                        if (resid != null && resid.Length > 0 && rescount > 0)
+                                        {
+                                            XmlElement xe = xmlDoc.CreateElement(resid);
+                                            xe.InnerText = rescount + "";
+                                            xmlele.AppendChild(xe);
+                                        }
                                     }
-                                }
-                                if (cdata.LossRes.Length > 0 && cdata.LossResCount > 0)
-                                {
-                                    XmlElement xet = xmlDoc.CreateElement("lossres");
-                                    xet.SetAttribute("id", cdata.LossRes);
-                                    xet.InnerText = cdata.LossResCount + "";
-                                    xmlele.AppendChild(xet);
-                                }
-                                if (cdata.EffectBoss.Length > 0)
-                                {
-                                    XmlElement xet = xmlDoc.CreateElement("effectboss");
-                                    xet.InnerText = cdata.EffectBoss;
-                                    xmlele.AppendChild(xet);
-                                }
+                                    if (cdata.LossRes != null && cdata.LossRes.Length > 0 && cdata.LossResCount > 0)
+                                    {
+                                        XmlElement xet = xmlDoc.CreateElement("lossres");
+                                        xet.SetAttribute("id", cdata.LossRes);
+                                        xet.InnerText = cdata.LossResCount + "";
+                                        xmlele.AppendChild(xet);
+                                    }
+                                    if (cdata.EffectBoss!= null && cdata.EffectBoss.Length > 0)
+                                    {
+                                        XmlElement xet = xmlDoc.CreateElement("effectboss");
+                                        xet.InnerText = cdata.EffectBoss;
+                                        xmlele.AppendChild(xet);
+                                    }
 
-                                XmlElement xetp = xmlDoc.CreateElement("rettype");
-                                xetp.InnerText = cdata.RetType + "";
-                                xmlele.AppendChild(xetp);
+                                    XmlElement xetp = xmlDoc.CreateElement("rettype");
+                                    xetp.InnerText = cdata.RetType + "";
+                                    xmlele.AppendChild(xetp);
 
-                                cell.AppendChild(xmlele);
+                                    cell.AppendChild(xmlele);
+                                }
                             }
 
                         }
