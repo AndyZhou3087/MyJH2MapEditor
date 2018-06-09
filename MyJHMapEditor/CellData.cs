@@ -20,6 +20,8 @@ namespace MyJHMapEditor
         private int[] m_monstergetrescount = new int[6];
         public int col { get; set; }
         public int row { get; set; }
+        public string boardblock { get; set; }
+        public bool walkable { get; set; }
         public void setEventRnd(int eventindex, int rnd)
         {
             m_eventsrnd[eventindex] = rnd;

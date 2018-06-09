@@ -1,6 +1,6 @@
 ﻿namespace MyJHMapEditor
 {
-    partial class mapFrom
+    partial class MapFrom
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.maptable = new System.Windows.Forms.TableLayoutPanel();
             this.resetBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -164,6 +163,9 @@
             this.monsterIdTxt0 = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.mapgridPanel = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -173,55 +175,10 @@
             this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
-            // maptable
-            // 
-            this.maptable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.maptable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.maptable.ColumnCount = 16;
-            this.maptable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.maptable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.maptable.Location = new System.Drawing.Point(20, 54);
-            this.maptable.Margin = new System.Windows.Forms.Padding(0);
-            this.maptable.Name = "maptable";
-            this.maptable.RowCount = 16;
-            this.maptable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.maptable.Size = new System.Drawing.Size(529, 529);
-            this.maptable.TabIndex = 0;
-            // 
             // resetBtn
             // 
             this.resetBtn.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.resetBtn.Location = new System.Drawing.Point(127, 16);
+            this.resetBtn.Location = new System.Drawing.Point(127, 23);
             this.resetBtn.Name = "resetBtn";
             this.resetBtn.Size = new System.Drawing.Size(75, 26);
             this.resetBtn.TabIndex = 64;
@@ -233,7 +190,7 @@
             // saveBtn
             // 
             this.saveBtn.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.saveBtn.Location = new System.Drawing.Point(234, 17);
+            this.saveBtn.Location = new System.Drawing.Point(234, 24);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(75, 26);
             this.saveBtn.TabIndex = 65;
@@ -246,7 +203,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(566, 48);
+            this.label1.Location = new System.Drawing.Point(1060, 77);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 19);
             this.label1.TabIndex = 1;
@@ -256,7 +213,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(651, 48);
+            this.label2.Location = new System.Drawing.Point(1145, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(21, 19);
             this.label2.TabIndex = 2;
@@ -266,7 +223,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(721, 48);
+            this.label3.Location = new System.Drawing.Point(1215, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(20, 19);
             this.label3.TabIndex = 4;
@@ -277,7 +234,7 @@
             this.xpostexbox.Enabled = false;
             this.xpostexbox.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.xpostexbox.ForeColor = System.Drawing.SystemColors.Control;
-            this.xpostexbox.Location = new System.Drawing.Point(673, 46);
+            this.xpostexbox.Location = new System.Drawing.Point(1167, 75);
             this.xpostexbox.Name = "xpostexbox";
             this.xpostexbox.Size = new System.Drawing.Size(42, 25);
             this.xpostexbox.TabIndex = 3;
@@ -287,7 +244,7 @@
             this.ypostexbox.Enabled = false;
             this.ypostexbox.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ypostexbox.ForeColor = System.Drawing.Color.Red;
-            this.ypostexbox.Location = new System.Drawing.Point(744, 46);
+            this.ypostexbox.Location = new System.Drawing.Point(1238, 75);
             this.ypostexbox.Name = "ypostexbox";
             this.ypostexbox.Size = new System.Drawing.Size(40, 25);
             this.ypostexbox.TabIndex = 5;
@@ -350,9 +307,9 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(570, 76);
+            this.groupBox1.Location = new System.Drawing.Point(1054, 100);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(372, 250);
+            this.groupBox1.Size = new System.Drawing.Size(464, 250);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "事件设置";
@@ -669,7 +626,7 @@
             this.groupBox3.Controls.Add(this.chooseContent1);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox3.Location = new System.Drawing.Point(570, 333);
+            this.groupBox3.Location = new System.Drawing.Point(1054, 637);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(463, 250);
             this.groupBox3.TabIndex = 28;
@@ -1139,7 +1096,7 @@
             // openBtn
             // 
             this.openBtn.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.openBtn.Location = new System.Drawing.Point(20, 17);
+            this.openBtn.Location = new System.Drawing.Point(7, 24);
             this.openBtn.Name = "openBtn";
             this.openBtn.Size = new System.Drawing.Size(75, 26);
             this.openBtn.TabIndex = 63;
@@ -1152,7 +1109,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.ForeColor = System.Drawing.Color.Crimson;
-            this.label26.Location = new System.Drawing.Point(331, 24);
+            this.label26.Location = new System.Drawing.Point(331, 31);
             this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(281, 12);
@@ -1219,7 +1176,7 @@
             this.groupBox6.Controls.Add(this.label28);
             this.groupBox6.Controls.Add(this.label27);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox6.Location = new System.Drawing.Point(948, 76);
+            this.groupBox6.Location = new System.Drawing.Point(1054, 366);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(464, 251);
             this.groupBox6.TabIndex = 7;
@@ -1799,12 +1756,44 @@
             this.label27.TabIndex = 0;
             this.label27.Text = "前排：";
             // 
-            // mapFrom
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(7, 77);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(152, 810);
+            this.listView1.TabIndex = 67;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // mapgridPanel
+            // 
+            this.mapgridPanel.Location = new System.Drawing.Point(190, 77);
+            this.mapgridPanel.Name = "mapgridPanel";
+            this.mapgridPanel.Size = new System.Drawing.Size(810, 810);
+            this.mapgridPanel.TabIndex = 68;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox1.Location = new System.Drawing.Point(1318, 77);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(67, 23);
+            this.checkBox1.TabIndex = 69;
+            this.checkBox1.Text = "可行走";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // MapFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1416, 617);
+            this.ClientSize = new System.Drawing.Size(1530, 921);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.mapgridPanel);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.groupBox3);
@@ -1817,11 +1806,11 @@
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.openBtn);
-            this.Controls.Add(this.maptable);
             this.MaximizeBox = false;
-            this.Name = "mapFrom";
+            this.Name = "MapFrom";
             this.Text = "mapeditor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Shown += new System.EventHandler(this.mapFrom_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1842,7 +1831,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.TableLayoutPanel maptable;
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Label label1;
@@ -1978,6 +1966,9 @@
         private System.Windows.Forms.TextBox monsterGetResId0;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Panel mapgridPanel;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 
