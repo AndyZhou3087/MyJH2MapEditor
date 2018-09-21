@@ -10,6 +10,8 @@ namespace MyJHMapEditor
     {
         private string[] res = new string[3];
         private int[] rescount = new int[3];
+        private int[] resqu = new int[3];
+        private float[] resrnd = new float[3] { 100,100,100};
         private int m_RetType = -1;
         public string Content{ get; set; }
         public void setGetRes(int index, string resid)
@@ -27,6 +29,22 @@ namespace MyJHMapEditor
         public int getGetResCount(int index)
         {
             return rescount[index];
+        }
+        public void setGetResQU(int index, int qu)
+        {
+            resqu[index] = qu;
+        }
+        public int getGetResQU(int index)
+        {
+            return resqu[index];
+        }
+        public void setGetResRnd(int index, float rnd)
+        {
+            resrnd[index] = rnd;
+        }
+        public float getGetResRnd(int index)
+        {
+            return resrnd[index];
         }
         public string LossRes { get; set; }
         public int LossResCount { get; set; }

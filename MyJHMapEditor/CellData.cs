@@ -10,7 +10,7 @@ namespace MyJHMapEditor
     {
         private int[] m_eventsrnd = new int[7];//7个事件概率
         private int m_postype = -1;
-        private string m_posnpcid;
+        private string m_posnpcid = "";
         private int m_posnpcrnd = 0;
 
         private string[] m_monstersid = new string[6];
@@ -18,10 +18,13 @@ namespace MyJHMapEditor
         private int[] m_monstersqu = new int[6];
         private string[] m_monstergetres = new string[6];
         private int[] m_monstergetrescount = new int[6];
+        private int[] m_monstergetresqu = new int[6];
+        private float[] m_monstergetresrnd = new float[6]{100,100,100,100,100,100};
         public int col { get; set; }
         public int row { get; set; }
         public string boardblock { get; set; }
         public bool walkable { get; set; }
+        public string buildblock { get; set; }
         public void setEventRnd(int eventindex, int rnd)
         {
             m_eventsrnd[eventindex] = rnd;
@@ -93,6 +96,23 @@ namespace MyJHMapEditor
         public int getMonstersGetResCount(int index)
         {
             return m_monstergetrescount[index];
+        }
+        public void setMonstersGetResQU(int index, int count)
+        {
+            m_monstergetresqu[index] = count;
+        }
+        public int getMonstersGetResQU(int index)
+        {
+            return m_monstergetresqu[index];
+        }
+
+        public void setMonstersGetResRnd(int index, float val)
+        {
+            m_monstergetresrnd[index] = val;
+        }
+        public float getMonstersGetResRnd(int index)
+        {
+            return m_monstergetresrnd[index];
         }
     }
 }
